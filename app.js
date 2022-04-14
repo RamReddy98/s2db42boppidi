@@ -8,14 +8,12 @@ const connectionString =  process.env.MONGO_CON
 mongoose = require('mongoose'); 
 mongoose.connect(connectionString,  {useNewUrlParser: true, useUnifiedTopology: true});
 //Get the default connection 
-var db = mongoose.connection;
-
-//Get the default connection
-var db = mongoose.connection;
-//Bind connection to error event
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once("open", function(){
-console.log("Connection to DB succeeded")});
+var db = mongoose.connection; 
+ 
+//Bind connection to error event  
+db.on('error', console.error.bind(console, 'MongoDB connection error:')); 
+db.once("open", function(){ 
+ console.log("Connection to DB succeeded")});
 
 var hotel = require('./models/hotel');
 
@@ -24,6 +22,8 @@ var usersRouter = require('./routes/users');
 var hotelRouter = require('./routes/hotel');
 var addmodsRouter= require('./routes/addmods');
 var selctorRouter= require('./routes/selector');
+var resourceRouter = require('./routes/resource');
+
 
 var app = express();
 
@@ -42,6 +42,7 @@ app.use('/users', usersRouter);
 app.use('/hotel', hotelRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selctorRouter);
+app.use('/resource', resourceRouter);
 
 
 // catch 404 and forward to error handler
