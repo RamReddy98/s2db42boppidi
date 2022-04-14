@@ -61,3 +61,31 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// We can seed the collection if needed on server start
+async function recreateDB(){ 
+  // Delete everything 
+await hotel.deleteMany(); 
+
+ let instance1 = new hotel({Hotel_name:"Oberoi", Location:"Mumbai", price:150}); 
+ instance1.save( function(err,doc) { 
+ if(err) return console.error(err); 
+ console.log("First object saved") 
+ });
+
+ let instance2 = new hotel({Hotel_name:"Awasa", Location:"Hyderabad", price:130}); 
+ instance2.save( function(err,doc) { 
+ if(err) return console.error(err); 
+ console.log("Second object saved") 
+ });
+
+ let instance3 = new hotel({Hotel_name:"JW Marriott", Location:"Delhi", price:200}); 
+ instance3.save( function(err,doc) { 
+ if(err) return console.error(err); 
+ console.log("Third object saved") 
+ });
+
+} 
+
+let reseed = true; 
+if (reseed) { recreateDB();}
