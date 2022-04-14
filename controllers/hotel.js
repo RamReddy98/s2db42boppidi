@@ -44,8 +44,8 @@ exports.hotel_update_put = function(req, res) {
 // List of all Hotels
 exports.hotel_list = async function(req, res) {
     try{
-    thehotel = await hotel.find();
-    res.send(thehotel);
+    thehotels = await hotel.find();
+    res.send(thehotels);
     }
     catch(err){
     res.status(500);
@@ -58,8 +58,8 @@ exports.hotel_list = async function(req, res) {
 // Handle a show all view
 exports.hotel_view_all_Page = async function(req, res) {
     try{
-    thehotel = await hotel.find();
-    res.render('hotel', { title: 'hotel Search Results', results: thehotel });
+    thehotels = await hotel.find();
+    res.render('hotel', { title: 'hotel Search Results', results: thehotels });
     }
     catch(err){
     res.status(500);
