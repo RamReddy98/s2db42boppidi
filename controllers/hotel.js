@@ -50,13 +50,7 @@ exports.hotel_delete = function(req, res) {
     res.send('NOT IMPLEMENTED: hotel delete DELETE ' + req.params.id);
 };
 
-// Handle Hotel update form on PUT.
-exports.hotel_update_put = function(req, res) {
-    res.send('NOT IMPLEMENTED: hotel update PUT' + req.params.id);
-};
-
-
-// Handle hotel update form on PUT. 
+// Handle Hotel update form on PUT. 
 exports.hotel_update_put = async function(req, res) { 
     console.log(`update on id ${req.params.id} with body 
 ${JSON.stringify(req.body)}`) 
