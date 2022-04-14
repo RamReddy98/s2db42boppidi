@@ -1,13 +1,27 @@
 var hotel = require('../models/hotel'); 
 
 // List of all Hotels
-exports.hotel_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: hotel list');
+exports.hotel_list = async function(req, res) {
+    try{
+    thehotels = await hotel.find();
+    res.send(thehotels);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
 };
 
 // for a specific Hotel.
-exports.hotel_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: hotel detail: ' + req.params.id);
+exports.hotel_detail = async function(req, res) { 
+    console.log("detail"  + req.params.id) 
+    try { 
+        result = await hotel.findById( req.params.id) 
+        res.send(result) 
+    } catch (error) { 
+        res.status(500) 
+        res.send(`{"error": document for id ${req.params.id} not found`); 
+    } 
 };
 
 // Handle Hotel create on POST.
@@ -39,18 +53,6 @@ exports.hotel_delete = function(req, res) {
 // Handle Hotel update form on PUT.
 exports.hotel_update_put = function(req, res) {
     res.send('NOT IMPLEMENTED: hotel update PUT' + req.params.id);
-};
-
-// List of all Hotels
-exports.hotel_list = async function(req, res) {
-    try{
-    thehotels = await hotel.find();
-    res.send(thehotels);
-    }
-    catch(err){
-    res.status(500);
-    res.send(`{"error": ${err}}`);
-    }
 };
 
 
