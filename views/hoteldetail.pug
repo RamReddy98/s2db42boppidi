@@ -1,9 +1,8 @@
-extends layout
 block content
 h1= title
 - let hotelid = toShow._id
 - let Hotel_name = toShow.Hotel_name
-- let location = toShow.location
+- let Location = toShow.Location
 - let price = toShow.price
 div
 div.row
@@ -13,8 +12,8 @@ div.row
 div(class='hotelAttr mr-3') Hotel_name is:
 div #{Hotel_name}
 div.row
-div(class='hotelAttr mr-3') location is:
-div #{location}
+div(class='hotelAttr mr-3') Location is:
+div #{Location}
 div.row
 div(class='hotelAttr mr-3') price is:
 div #{price}
