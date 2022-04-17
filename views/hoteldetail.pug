@@ -1,19 +1,25 @@
+extends layout
+
 block content
-h1= title
-- let hotelid = toShow._id
-- let Hotel_name = toShow.Hotel_name
-- let Location = toShow.Location
-- let price = toShow.price
-div
-div.row
-div(class='hotelAttr mr-3') hotel ID is:
-div #{hotelid}
-div.row
-div(class='hotelAttr mr-3') Hotel_name is:
-div #{Hotel_name}
-div.row
-div(class='hotelAttr mr-3') Location is:
-div #{Location}
-div.row
-div(class='hotelAttr mr-3') price is:
-div #{price}
+  h1= title
+
+  
+    - let hotelid = toShow._id
+    - let Hotel_name= toShow.Hotel_name
+    - let Location = toShow.Location
+    - let price = toShow.price
+    
+    div
+      div.row
+        div(class='hotelAttr mr-3') hotel ID is:
+        div #{hotelid}
+      div.row
+        div(class='hotelAttr mr-3') Hotel_name is:
+        div #{Hotel_name}
+      div.row
+        div(class='hotelAttr mr-3') Location is:
+        div #{Location}
+      div.row
+        div(class='hotelAttr mr-3') price is:
+        div #{price}
+      
