@@ -1,0 +1,41 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  - let hotelid = toShow._id
+  - let Hotel_name = toShow.Hotel_name
+  - let Location = toShow.Location
+  - let price = toShow.price
+
+  div.row(class='mb-2')
+   div.mr-1 ID is
+   div #{hotelid}
+  - let actionid = "/resource/resource/hotels/" + hotelid 
+  form(id='hotelForm', action=actionid, method="PUT") 
+    div.form-group 
+        label.hotelAttr(for='Hotel_name') Hotel_name 
+        input#Hotel_name(type='text', name='Hotel_name') 
+    div.form-group 
+        label.hotelAttr(for='Location') Location
+        input#Location(type='text', name='Location') 
+    div.form-group 
+        label.hotelAttr(for='price') Student Number 
+        input#price(type='number', name='price') 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['hotelForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) 
+      }).then((resp) => { 
+        return resp.json();  
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    });
