@@ -1,0 +1,51 @@
+extends layout
+block content
+ h1= title
+ if (toShow == null)
+  h2 No instance to Delete
+ else
+  - let hotelid = toShow._id
+  - let Hotel_name = toShow.Hotel_name
+  - let Location = toShow.Location
+  - let price = toShow.price
+  - let actionid = "/resource/hotel/" + hotelid
+  script let actionid = "#{actionid}"
+  div
+   div.row
+    div(class='hotelAttr mr-3') hotel ID is:
+    div #{pancakeid}
+   div.row
+    div(class='hotelAttr mr-3') Hotel_name is:
+    div #{Hotel_name}
+   div.row
+    div(class='hotelAttr mr-3') Location is:
+    div #{Location}
+   div.row
+    div(class='hotelAttr mr-3') price is:
+    div #{price}
+
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+      // Go back to the home page for the hotel collection
+      window.location.href='/hotel'
+    }
+  script.
+    function deleteOnid() {
+      console.log("starting delete")
+      // delete first
+      fetch(actionid, {
+        method: 'DELETE'      // Don't need a body for the delete
+      }).then((resp) => {
+        return resp.text(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Delete succeded")
+        window.location.href='/hotel'
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Delete failed " + error )
+      });
+    }
