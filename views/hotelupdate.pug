@@ -10,7 +10,7 @@ block content
   div.row(class='mb-2')
    div.mr-1 ID is
    div #{hotelid}
-  - let actionid = "/resource/resource/hotels/" + hotelid 
+  - let actionid = "/resource/hotel/" + hotelid 
   form(id='hotelForm', action=actionid, method="PUT") 
     div.form-group 
         label.hotelAttr(for='Hotel_name') Hotel_name 
@@ -19,7 +19,7 @@ block content
         label.hotelAttr(for='Location') Location
         input#Location(type='text', name='Location') 
     div.form-group 
-        label.hotelAttr(for='price') Student Number 
+        label.hotelAttr(for='price') price 
         input#price(type='number', name='price') 
     input(type="submit") 
  
