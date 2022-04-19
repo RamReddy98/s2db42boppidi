@@ -1,7 +1,10 @@
 extends layout 
  
 block content 
-  h1= title 
+ h1(class="text-center")= title 
+ if (toShow == null) 
+  h2 No instance to delete 
+ else
   - let hotelid = toShow._id
   - let Hotel_name = toShow.Hotel_name
   - let Location = toShow.Location
@@ -11,17 +14,17 @@ block content
    div.mr-1 ID is
    div #{hotelid}
   - let actionid = "/resource/hotel/" + hotelid 
-  form(id='hotelForm', action=actionid, method="PUT") 
+  form(id='hotelForm',class="text-center", action=actionid, method="PUT") 
     div.form-group 
         label.hotelAttr(for='Hotel_name') Hotel_name 
-        input#Hotel_name(type='text', name='Hotel_name') 
+        input#Hotel_name(type='text', name='Hotel_name', value= Hotel_name) 
     div.form-group 
         label.hotelAttr(for='Location') Location
-        input#Location(type='text', name='Location') 
+        input#Location(type='text', name='Location', value= Location) 
     div.form-group 
         label.hotelAttr(for='price') price 
-        input#price(type='number', name='price') 
-    input(type="submit") 
+        input#price(type='number', name='price', value= price) 
+    input(type="submit" class="btn btn-warning m-2") 
  
   script. 
     document.forms['hotelForm'].addEventListener('submit', (event) => { 
