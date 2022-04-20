@@ -1,9 +1,9 @@
 extends layout 
  
 block content 
- h1(class="text-center")= title 
+ h1= title 
  if (toShow == null) 
-  h2 No instance to delete 
+  h2 No instance to update 
  else
   - let hotelid = toShow._id
   - let Hotel_name = toShow.Hotel_name
@@ -14,7 +14,7 @@ block content
    div.mr-1 ID is
    div #{hotelid}
   - let actionid = "/resource/hotel/" + hotelid 
-  form(id='hotelForm',class="text-center", action=actionid, method="PUT") 
+  form(id='hotelForm', action=actionid, method="PUT") 
     div.form-group 
         label.hotelAttr(for='Hotel_name') Hotel_name 
         input#Hotel_name(type='text', name='Hotel_name', value= Hotel_name) 
@@ -24,7 +24,7 @@ block content
     div.form-group 
         label.hotelAttr(for='price') price 
         input#price(type='number', name='price', value= price) 
-    input(type="submit" class="btn btn-warning m-2") 
+    input(type="submit" class="btn btn-primary m-2") 
  
   script. 
     document.forms['hotelForm'].addEventListener('submit', (event) => { 
