@@ -2,7 +2,9 @@ extends layout
 
 block content
  h1= title
-
+ if (toShow == null) 
+   h2 No instance to details 
+ else
  - let hotelid = toShow._id
  - let Hotel_name= toShow.Hotel_name
  - let Location = toShow.Location
