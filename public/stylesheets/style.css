@@ -10,3 +10,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+.hotelDetailAttr{
+  background-color:rgb(255, 252, 196); 
+  width: 120px; 
+  border: 1px solid black;
+}
+
+.container{
+  width: 250px;
+  height: 200px;
+}
