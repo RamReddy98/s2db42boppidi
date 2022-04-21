@@ -81,7 +81,7 @@ passport.deserializeUser(Account.deserializeUser());
 // We can seed the collection if needed on server start
 async function recreateDB(){ 
   // Delete everything 
-await hotel.deleteMany(); 
+ await hotel.deleteMany(); 
 
  let instance1 = new hotel({Hotel_name:"Oberoi", Location:"Mumbai", price:150}); 
  instance1.save( function(err,doc) { 
