@@ -11,8 +11,8 @@ block content
       //- let destination2 = `dispatch(\"/Season/detail?id=${item._id}\")`
       //- let destination3 = `dispatch(\"/Season/delete?id=${item._id}\")`
       div(class="row-sm-2", class="m-1") Hotel_name: #{item.Hotel_name}(#{item.Location}) is #{item.price}  
-        button.btn( class="btn-primary ml-1", onclick= destination1, style = "margin:8px;") Update
-        button.btn( class="btn-primary ml-1", onclick= destination, style = "margin:8px;" ) Update
+        button.btn( class="btn-primary ml-1", onclick= destination, style = "margin:8px;") Update
+        //-button.btn( class="btn-primary ml-1", onclick= destination1, style = "margin:8px;" ) Create
         //-button.btn( class="btn-primary ml-1", onclick= destination2, style = "margin:8px;" ) Detail
         //-button.btn( class="btn-primary ml-1", onclick= destination3, style = "margin:8px;" ) Delete
   script.
