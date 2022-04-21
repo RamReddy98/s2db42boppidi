@@ -77,7 +77,6 @@ var Account =require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate())); 
 passport.serializeUser(Account.serializeUser()); 
 passport.deserializeUser(Account.deserializeUser());
-
 // We can seed the collection if needed on server start
 async function recreateDB(){ 
   // Delete everything 
