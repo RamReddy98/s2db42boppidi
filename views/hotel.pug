@@ -1,25 +1,26 @@
-extends layout
-
 block content
   h1= title
-  - let items = results
-   div(class = "container-fluid")
-    div(class = "row m-1")
-     each item in items  
-      - let destination = `dispatch(\"/hotel/update?id=${item._id}\")`
-      - let destination1 = `dispatch(\"/hotel/create\")`
-      - let destination2 = `dispatch(\"/hotel/detail?id=${item._id}\")`
-      - let destination3 = `dispatch(\"/hotel/delete?id=${item._id}\")`
-      div(class="row-sm-2", class="m-1") Hotel_name: #{item.Hotel_name}(#{item.Location}) is #{item.price}  
-        button.btn( class="btn-primary ml-1", onclick= destination, style = "margin:8px;") Update
-        button.btn( class="btn-primary ml-1", onclick= destination1, style = "margin:8px;" ) Create
-        button.btn( class="btn-primary ml-1", onclick= destination2, style = "margin:8px;" ) Detail
-        button.btn( class="btn-primary ml-1", onclick= destination3, style = "margin:8px;" ) Delete
+
+  - let items = results; 
+
+  - let o;
   script.
-    function buy(itemNo){
-        alert(`You purchased item ${itemNo+1}`)
-    }
-  script. 
-    function dispatch(path){ 
-        window.location.href=path 
+    function buy(x){
+      alert('Purchased Item: ' + x)
     } 
+  div(class="container-fluid") 
+    div(class="row m-1") 
+      each item in items  
+        - let destination = `dispatch(\"/hotel/update?id=${item._id}\")` 
+        - let destination1 = `dispatch(\"/hotel/create\")` 
+        - let destination2 = `dispatch(\"/hotel/delete?id=${item._id}\")` 
+        - let destination3 = `dispatch(\"/hotel/detail?id=${item._id}\")` 
+        div(class="row-sm-2" class="m-1") Hotel_name #{item.Hotel_name}(#{item.Location}) is #{item.price} 
+          button.btn( class="btn-primary ml-1", onclick= destination) Update 
+          button.btn( class="btn-primary ml-1", onclick= destination1) create 
+          button.btn( class="btn-primary ml-1", onclick= destination2) delete 
+          button.btn( class="btn-primary ml-1", onclick= destination3) detail 
+script. 
+  function dispatch(path){ 
+    window.location.href=path 
+  }
