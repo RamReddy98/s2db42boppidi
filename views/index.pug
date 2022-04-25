@@ -1,20 +1,12 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title} and Working on pug templates to dynamically generate webpages.
-  br
-  button(type="button", class="btn btn-primary",,onclick="moreClaps()") Press Me
-  br
-  br
-  div(id="target") Clap for me
-  script.
-    var clap_count=0;
-    function moreClaps() {
-    clap_count=clap_count+2;
-    document.getElementById("target").innerHTML = "Clap " +clap_count+ " times";
-   } 
-  br
-  br
-  a(href='hotel') Go to Hotel Page
-  
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/hotel") Take me to hotel 
+    br 
+    a(href="/logout") Logout 
