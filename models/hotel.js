@@ -4,7 +4,7 @@ const hotelSchema = mongoose.Schema({
     Location: { type: String, minLength: 1 },
     price: { 
         type: Number,
-        min: 10
+        min: 100
     }
 })
 module.exports = mongoose.model("hotel", hotelSchema)  
