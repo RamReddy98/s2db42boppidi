@@ -3,7 +3,7 @@ const hotelSchema = mongoose.Schema({
 Hotel_name:{
     type: String,
     minLength: 4,
-    maxLength:15
+    maxLength:11
 } ,
 Location: String,
 price: {
